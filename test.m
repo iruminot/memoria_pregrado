@@ -1,1 +1,1 @@
-fprintf("Primer script")
+fprintf("Primer script\n")
