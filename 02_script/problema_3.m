@@ -35,10 +35,7 @@ try
     xlabel('Tiempo (h)');
     ylabel('Concentracion (mol/L)');
 
-    print(fig,fullfile(results_folder, sprintf('%d_problema_3.pdf', iter_id)),'-dpdf','-r300');
-    print(fig,fullfile(results_folder, sprintf('%d_problema_3.eps', iter_id)),'-depsc','-r300');
-
-    saveas(fig,fullfile(results_folder, sprintf('%d_problema_3_as.eps', iter_id)),'epsc')
+    print(fig,fullfile(results_folder, sprintf('%d_problema_3', iter_id)),'-dpdf','-r300');
     close(fig);
 
     %save(fullfile(results_folder, 'resultados_sim.mat'), 'sol');
