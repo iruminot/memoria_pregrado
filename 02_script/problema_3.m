@@ -34,10 +34,9 @@ try
     title('Reactor 2');
     xlabel('Tiempo (h)');
     ylabel('Concentracion (mol/L)');
-    saveas(fig, fullfile(results_folder, sprintf('%d_problema_3.pdf', iter_id)));
+    % saveas(fig, fullfile(results_folder, sprintf('%d_problema_3.pdf', iter_id)));
 
     print(fullfile(results_folder, sprintf('%d_problema_3.eps', iter_id)), '-depsc');   
-
 
     close(fig);
 
