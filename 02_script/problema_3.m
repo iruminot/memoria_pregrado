@@ -40,7 +40,7 @@ try
 
     print(fig, fullfile(results_folder, sprintf('%d_problema_3.pdf', iter_id)), '-dpdf','-bestfit');
 
-    print(fig, fullfile(results_folder, sprintf('%d_problema_3.eps', iter_id)), '-depsc');
+   saveas(figure,fullfile(results_folder, sprintf('%d_problema_3', iter_id)),'epsc')
 
     close(fig);
 
