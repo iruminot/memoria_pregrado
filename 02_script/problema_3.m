@@ -1,16 +1,8 @@
 clear all; clc; close all;
 
-% --- AÑADIR CARPETA DE FUNCIONES AL PATH ---
-% Obtiene la ruta del script actual (el que se está ejecutando)
 currentScriptPath = fileparts(mfilename('fullpath'));
-
-% Define la ruta a la carpeta de funciones (subiendo un nivel y entrando a 01_Code/Functions)
-functionsPath = fullfile(currentScriptPath, '..' ,'01_code', 'functions');
-
-% Añade la carpeta al path de búsqueda de MATLAB temporalmente
-addpath(functionsPath);
-
-% results_folder = fullfile('04_results', ['Run_', datestr(now, 'yyyymmdd_HHMMSS'), 'prueba']);
+functionsPath = fullfile(currentScriptPath, '..' ,'01_code', 'functions'); addpath(functionsPath);
+dataPath = fullfile(currentScriptPath, '..' ,'03_data'); addpath(dataPath);
 results_folder = fullfile(currentScriptPath, '..' ,'04_results');
 
 iter_id = log_job_status('start', results_folder);
@@ -47,7 +39,6 @@ try
 
     %save(fullfile(results_folder, 'resultados_sim.mat'), 'sol');
 
-    % Llama a la función de logging para indicar el fin
     log_job_status('end', results_folder, iter_id);
 
 catch ME
@@ -59,7 +50,6 @@ catch ME
     fprintf(fid, 'Mensaje: %s\n', ME.message);
     fclose(fid);
     
-    % Elimina el archivo RUNNING basado en el ID para no dejar trabajos "fantasmas"
     running_pattern_to_delete = fullfile(results_folder, sprintf('%d_*_status_running.txt', iter_id));
     running_files_to_delete = dir(running_pattern_to_delete);
     if ~isempty(running_files_to_delete)
