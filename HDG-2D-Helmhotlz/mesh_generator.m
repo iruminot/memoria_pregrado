@@ -14,7 +14,7 @@ function [elem,bedg,edges,n_vert,n_edge,n_bedg,hmax] = mesh_generator(geom,ref)
     if geom==1    
         [vertices,elements,edges] = generate_rectangle(1,1,ref);  
         %edge = [];
-        load(strcat('mesh',num2str(ref),'.mat'));
+        % load(strcat('mesh',num2str(ref),'.mat'));
         %elements = elem_back;
         %vertices = coord;        
         %edges = edge;
