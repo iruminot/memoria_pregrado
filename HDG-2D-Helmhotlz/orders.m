@@ -7,7 +7,7 @@ geom = 1; %Rectangle
 %geom = 3; %ring for testing
 ex =  input('Choose example: ');
 k = input('Choose polinomial degree: '); 
-param = [1:10];
+param = [1:5];
 
 error_q = [];
 error_u = [];
@@ -16,6 +16,10 @@ for j = 1 : length(param)
     tic
     [h(j) N(j) error_u(j) error_q(j) error_lam(j)] = main(k,param(j),geom,ex);
     toc
+
+    nombre_archivo = sprintf('figura_ex%d_k%d_param%d.png', ex, k, param(j));
+    saveas(gcf, nombre_archivo); 
+    close(gcf);
 end
 tic
 

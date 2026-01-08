@@ -131,4 +131,5 @@ for j = 1 : n_elem
     [qh,uh] = evaluate_qh_uh(lam(1,:),lam(2,:),coefloc(j),dim_W,dim_V);
     trisurf([1 2 3],x,y,uh);
 end
+
 hold off
